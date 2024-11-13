@@ -14,63 +14,75 @@
             height: 100%;
         }
 
-        /* Navbar styles */
-        .navbar {
-            background-color: #4A90E2; /* Updated navbar color */
-            color: white;
-            padding: 10px 20px;
-            text-align: left;
+        /* Navbar container with flexbox */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            background-color: #4A90E2; /* Navigation bar color */
+            padding: 0 20px;
+            border-radius: 5px;
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 10; /* Ensure the navbar is always on top */
+            z-index: 10; /* Ensure navbar is on top */
+            height: 80px; /* Set navbar height */
         }
 
-        /* Navbar buttons container (centering the buttons) */
-        .navbar-buttons {
+        /* Logo styling */
+        .nav-container img {
+            height: 60px; /* Adjust logo size */
+            margin-right: 15px; /* Space between logo and buttons */
+        }
+
+        /* Button container to align buttons */
+        .button-container {
             display: flex;
-            justify-content: flex-start; /* Align buttons to the left */
             gap: 15px;
-            align-items: center;
+            justify-content: flex-start;
+            margin-left: 20px; /* Add some space between logo and buttons */
         }
 
         /* Button styling */
-        input[type="button"] {
-            padding: 10px 20px;
-            font-size: 16px;
+        button {
             background-color: #D3D3D3;
+            color: black;
+            padding: 10px 20px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Button hover effect */
-        input[type="button"]:hover {
+        button:hover {
             background-color: #B0B0B0;
         }
 
-        /* Fullscreen iframe styling */
+        /* Iframe styling */
         iframe {
             position: absolute;
-            top: 50px; /* Adjust to the navbar height */
+            top: 80px; /* Adjust to leave space for navbar */
             left: 0;
             right: 0;
             bottom: 0;
             width: 100%;
-            height: calc(100% - 50px); /* Subtract navbar height from the iframe height */
+            height: calc(100% - 80px); /* Subtract navbar height */
             border: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="navbar-buttons">
-            <input type="button" value="Back" onclick="historyBack()">
-            <input type="button" value="Forward" onclick="historyForward()">
+    <!-- Navbar with logo and back/forward buttons -->
+    <div class="nav-container">
+        <img src="https://eagx.github.io/assets/img/lightning-static.png" alt="Logo">
+        <div class="button-container">
+            <button onclick="historyBack()">Back</button>
+            <button onclick="historyForward()">Forward</button>
         </div>
     </div>
 
