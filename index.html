@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up Example</title>
+    <script type="text/javascript">
+        // Function to open the pop-up window with the specified URL
+        function openPopup() {
+            var popupURL = 'https://meximath.github.io';  // URL for the pop-up
+            var windowFeatures = 'width=800,height=600,scrollbars=yes,resizable=yes';
+            
+            // Open the pop-up with the given URL and window features
+            window.open(popupURL, '_blank', windowFeatures);
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Welcome to the Pop-up Example</h1>
+    <p>Click the button below to open the pop-up:</p>
+
+    <!-- Button to trigger the pop-up -->
+    <button onclick="openPopup()">Open Pop-up to Meximath</button>
+
+</body>
+</html>
