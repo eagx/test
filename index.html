@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop-up Example</title>
-    <script type="text/javascript">
-        // Function to open the pop-up window with the specified URL
-        function openPopup() {
-            var popupURL = 'https://meximath.github.io';  // URL for the pop-up
-            var windowFeatures = 'width=800,height=600,scrollbars=yes,resizable=yes';
-            
-            // Open the pop-up with the given URL and window features
-            window.open(popupURL, '_blank', windowFeatures);
-        }
-    </script>
+    <title>Nested Iframes Example</title>
 </head>
 <body>
 
-    <h1>Welcome to the Pop-up Example</h1>
-    <p>Click the button below to open the pop-up:</p>
+    <h1>Nested Iframes Example</h1>
 
-    <!-- Button to trigger the pop-up -->
-    <button onclick="openPopup()">Open Pop-up to Meximath</button>
+    <!-- Outer iframe -->
+    <iframe src="about:blank" width="600" height="400">
+        <html>
+            <body>
+                <h2>This is the outer iframe</h2>
+
+                <!-- Inner iframe -->
+                <iframe src="about:blank" width="500" height="300">
+                    <html>
+                        <body>
+                            <h3>This is the second-level iframe</h3>
+
+                            <!-- Innermost iframe -->
+                            <iframe src="https://meximath.github.io" width="400" height="250">
+                                <html>
+                                    <body>
+                                        <h4>This is the innermost iframe, now loading Meximath</h4>
+                                    </body>
+                                </html>
+                            </iframe>
+
+                        </body>
+                    </html>
+                </iframe>
+
+            </body>
+        </html>
+    </iframe>
 
 </body>
 </html>
