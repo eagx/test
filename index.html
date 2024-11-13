@@ -5,65 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nested Iframes Example</title>
     <style>
-        /* Make the outer iframe fullscreen */
-        iframe {
-            border: none;
-            display: block;
-            margin: 0 auto; /* Center horizontally */
+        /* Basic Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
-        /* Style for outer iframe (full screen) */
+        /* Outer iframe (full screen) */
         .outer-iframe {
             width: 100vw;   /* Full width of the viewport */
             height: 100vh;  /* Full height of the viewport */
-            position: absolute; /* Position absolutely to take up the entire screen */
-            top: 0;
-            left: 0;
+            border: none;
+            display: block;
         }
 
-        /* Style for inner iframe (80% of the viewport) */
+        /* Inner iframe (80% of the viewport) */
         .inner-iframe {
             width: 80vw;    /* 80% width of the viewport */
             height: 80vh;   /* 80% height of the viewport */
-            position: absolute;
-            top: 10vh;      /* Position 10vh from the top */
-            left: 10vw;     /* Position 10vw from the left */
+            border: none;
+            display: block;
+            margin: auto;
         }
 
-        /* Style for innermost iframe (70% of the viewport) */
+        /* Innermost iframe (70% of the viewport) */
         .innermost-iframe {
             width: 70vw;    /* 70% width of the viewport */
             height: 70vh;   /* 70% height of the viewport */
-            margin: 0 auto; /* Center horizontally */
-            position: absolute;
-            top: 15vh;      /* Position 15vh from the top */
-            left: 15vw;     /* Position 15vw from the left */
+            border: none;
+            display: block;
+            margin: auto;
+        }
+
+        /* To make sure the iframes are centered properly */
+        iframe {
+            display: block;
+            margin: auto;
         }
     </style>
 </head>
 <body>
 
-    <h1>Nested Iframes Example</h1>
-
     <!-- Outer iframe (Full screen) -->
     <iframe src="about:blank" class="outer-iframe">
+        <!-- Content for the outer iframe -->
         <html>
             <body>
-                <h2 style="text-align:center;">This is the outer iframe</h2>
+                <h2>This is the outer iframe (full screen)</h2>
 
-                <!-- Inner iframe (Smaller) -->
+                <!-- Inner iframe (80% of the screen) -->
                 <iframe src="about:blank" class="inner-iframe">
+                    <!-- Content for the inner iframe -->
                     <html>
                         <body>
-                            <h3 style="text-align:center;">This is the second-level iframe</h3>
+                            <h3>This is the second-level iframe (80% of screen)</h3>
 
-                            <!-- Innermost iframe (Even smaller) -->
+                            <!-- Innermost iframe (70% of the screen) -->
                             <iframe src="https://meximath.github.io" class="innermost-iframe">
-                                <html>
-                                    <body>
-                                        <h4 style="text-align:center;">This is the innermost iframe, now loading Meximath</h4>
-                                    </body>
-                                </html>
+                                <!-- Content for the innermost iframe -->
                             </iframe>
 
                         </body>
