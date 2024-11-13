@@ -5,35 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iframe Navigation</title>
     <style>
-        /* Some basic styling */
+        /* Basic page styling */
         body {
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            padding: 20px;
+            background-color: #6DA6FF;
+            height: 100%;
         }
 
-        iframe {
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
+        /* Navbar styles */
+        .navbar {
+            background-color: #4A90E2; /* Updated navbar color */
+            color: white;
+            padding: 10px 20px;
+            text-align: left;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10; /* Ensure the navbar is always on top */
         }
 
+        /* Navbar buttons container (centering the buttons) */
+        .navbar-buttons {
+            display: flex;
+            justify-content: flex-start; /* Align buttons to the left */
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* Button styling */
         input[type="button"] {
-            padding: 10px 15px;
-            margin: 5px;
-            cursor: pointer;
+            padding: 10px 20px;
             font-size: 16px;
+            background-color: #D3D3D3;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        input[type="button"]:hover {
+            background-color: #B0B0B0;
+        }
+
+        /* Fullscreen iframe styling */
+        iframe {
+            position: absolute;
+            top: 50px; /* Adjust to the navbar height */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: calc(100% - 50px); /* Subtract navbar height from the iframe height */
+            border: none;
         }
     </style>
 </head>
 <body>
 
-    <h1>Control Iframe Navigation</h1>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-buttons">
+            <input type="button" value="Back" onclick="historyBack()">
+            <input type="button" value="Forward" onclick="historyForward()">
+        </div>
+    </div>
 
     <!-- Iframe displaying the eagx.github.io site -->
-    <iframe name="iframe_name" src="https://eagx.github.io" width="600" height="400"></iframe>
-
-    <!-- Buttons to go Back and Forward in the iframe's history -->
-    <input type="button" value="Back" onclick="historyBack()">
-    <input type="button" value="Forward" onclick="historyForward()">
+    <iframe name="iframe_name" src="https://eagx.github.io" width="100%" height="100%"></iframe>
 
     <script>
         // Function to go back one page in the iframe
